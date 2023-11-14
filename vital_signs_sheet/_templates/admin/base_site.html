@@ -1,0 +1,14 @@
+{% extends "admin/base.html" %}
+
+{% block title %}{% if subtitle %}{{ subtitle }} | {% endif %}{{ title }} | Vital Signs OPD{% endblock %}
+
+{% block branding %}
+<div id="site-name" style="margin-right: 20px;"><a href="{% url 'admin:index' %}">Vital Signs OPD</a></div>
+<div><a href="{% url 'transaction:transaction_list' %}">Transaction List</a></div>
+
+{% if user.is_anonymous %}
+  {% include "admin/color_theme_toggle.html" %}
+{% endif %}
+{% endblock %}
+
+{% block nav-global %}{% endblock %}

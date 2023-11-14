@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+
+<head>
+    <title>Transaction List</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'list.css' %}">
+</head>
+
+<body>
+    <h1>Transaction List</h1>
+    <div class="create"><a href="{% url 'admin:index' %}"><button type="submit">ADD TRANSACTION</button></a></div>
+    <div class="scroll-table">
+        <table class="table table-alt">
+            <thead>
+                <tr>
+                    <th class="sort">Patient Name</th>
+                    <th class="sort">Physician</th>
+                    <th class="sort">Reason for Consultation</th>
+                    <th class="sort">Date of Birth</th>
+                    <th class="sort">Age</th>
+                    <th class="sort">Sex</th>
+                    <th class="sort">Room Number</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for transaction in transactions %}
+                <tr>
+                    <td>{{ transaction.patient.first_name }} {{ transaction.patient.last_name }}</td>
+                    <td>{{ transaction.physician.first_name }} {{ transaction.physician.last_name }}</td>
+                    <td>{{ transaction.reason_for_consultation }}</td>
+                    <td>{{ transaction.patient.birthdate }}</td>
+                    <td>{{ transaction.patient.age }}</td>
+                    <td>{{ transaction.patient.sex }}</td>
+                    <td>{{ transaction.physician.room_number }}</td>
+                    <td>
+                        <form method="get" action="{% url 'transaction:export_pdf' transaction.id %}">
+                            <button type="submit">Export PDF</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

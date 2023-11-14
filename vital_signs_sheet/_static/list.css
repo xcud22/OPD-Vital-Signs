@@ -1,0 +1,92 @@
+body {
+    background: #121212;
+}
+
+h1 {
+    color: white;
+}
+
+.scroll-table {
+    width: 1300px;
+    height: 162px;
+    margin: 40px auto;
+}
+
+.table {
+    width: 100%;
+    height: 100%;
+    display: block;
+    table-layout: fixed;
+    border-collapse: collapse;
+    position: relative;
+    margin-bottom: 68px;
+}
+
+.table tr:nth-child(even) td {
+    background: #264B5D;
+    color: #FFFFCC;
+}
+
+.table tr:nth-child(odd) td {
+    background: #212121;
+    color: #74D4FA;
+    
+}
+
+.table th {
+    border-bottom: 2px solid black;
+    background: #fff;
+}
+
+.table tfoot td {
+    border-top: 1px solid black;
+}
+
+.table th,
+.table td {
+    text-align: left;
+    padding: 6px 10px;
+}
+
+.table thead,
+.table tfoot,
+.table tbody>tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+.table thead {
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 1;
+}
+
+.table tbody {
+    display: block;
+    margin-top: 5px;
+    overflow-y: auto;
+    height: calc(100% - 5px);
+}
+
+.table tfoot {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    transform: translate(0, 34px);
+}
+
+.create {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+}
+
+button {
+    background-color: #14624B;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    height: 25px;
+}
